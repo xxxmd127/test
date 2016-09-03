@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div id="div1" aa="cc">div1</div>
+
+	<script src="myjslib.js"></script>
+	<script>
+		var oDiv = getById('div1');
+		alert( attr(oDiv, 'aa') );
+		
+		function attr(elem, attrName, attrValue){
+			if(attrValue){
+				elem.setAttribute(attrName, attrValue);
+			}else{
+				return elem.getAttribute(attrName);
+			}
+		}
+		// oDiv.id = 'haha';
+		//oDiv.aa = 'bb';
+
+		//alert(oDiv.getAttribute('aa'));
+		/*oDiv.setAttribute('aa', 'bb');
+
+		alert(  oDiv.getAttribute('aa')  );*/
+
+		/*var oAttr = document.createAttribute('aa');
+		oAttr.nodeValue = 'bbbbbb';
+		
+		oDiv.setAttributeNode(oAttr);*/
+
+
+		//alert(oDiv.aa);
+	</script>
+</body>
+</html>

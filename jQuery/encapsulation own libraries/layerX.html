@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		#div1{
+			width: 200px;
+			height: 200px;
+			background: #f00;
+			/*position: absolute;
+			left: 0;*/
+		}
+	</style>
+</head>
+<body>
+	<div id="div1">hahaha</div>
+	<script>
+		var oDiv = document.getElementById('div1');
+		// console.log(oDiv.style.width);
+		oDiv.onclick = function(e){
+			console.log(getElementX(oDiv));
+		};
+
+		function getElementX( e ) {
+		    // Find the appropriate element offset
+		    return ( e && e.layerX ) || window.event.offsetX;
+		}
+
+
+
+
+
+
+
+
+
+	</script>
+</body>
+</html>

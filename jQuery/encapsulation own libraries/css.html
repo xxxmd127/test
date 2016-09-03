@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		#div1{
+			width: 200px;
+			height: 200px;
+			/*background: #f00;*/
+			background-color: #f00;
+			border: 10px solid #000;
+		}
+		.aa{
+			font-size: 40px;
+		}
+	</style>
+</head>
+<body>
+	<div id="div1" class="bb aa cc ">haha</div>
+	<script src="myjslib.js"></script>
+	<script>
+		var oDiv = getById('div1');
+		removeClass(oDiv, 'aa');
+
+		// css(oDiv, 'width', 300);
+		// alert( css(oDiv, 'width') );
+		/*css(oDiv, {
+			width: 300,
+			height: 300,
+			'background-color': 'green',
+			backgroundColor: 'green'
+		});*/
+		// var s = getComputedStyle(oDiv, "");
+		// console.log( s['borderWidth'] );
+		// console.log( s.getPropertyValue('border-width') );
+
+
+
+
+
+
+
+
+
+
+
+
+	</script>
+</body>
+</html>

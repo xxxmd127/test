@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div id="div1">
+		<!-- 111 -->
+		<h1 id="h1">h1</h1>
+		<p id="p1">p1</p>
+	</div>
+
+	<script src="myjslib.js"></script>
+	<script>
+		var oDiv1 = getById('div1');
+		var oH1 = getById('h1');
+		var oP1 = getById('p1');
+
+		console.log(  first(oDiv1)  );
+
+
+		function next(elem){
+			do{
+				elem = elem.nextSibling;
+			}while(elem && elem.nodeType != 1);
+			return elem;
+		}
+
+		function first(elem){
+			elem = elem.firstChild;
+			return elem && elem.nodeType != 1 ? next(elem) : elem;
+
+		}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	</script>
+</body>
+</html>

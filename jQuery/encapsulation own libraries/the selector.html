@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+
+</head>
+<body>
+	<button id="btn">click</button>
+	<div id="div1">
+		<p class="aa">11</p>
+		<p class="aa">22</p>
+		<h1 class="aa">h1</h1>
+	</div>
+
+	<ul id="ul1">
+		<li class="aa">item 1</li>
+		<li class="aa">item 2</li>
+		<li>item 3</li>
+	</ul>
+
+	<script>
+		//document.getElementById('btn');
+
+		/*var oBtn = id('btn');
+
+		function id(elemId){
+			return document.getElementById(elemId);
+		}*/
+
+		/*var arr = document.getElementsByClassName('aa');
+
+		console.log(arr);*/
+		var oUl = document.getElementById('ul1');
+		var oDiv = document.getElementById('div1');
+
+		var aP = getByClass('aa', oDiv, 'p');
+		console.log(aP);
+
+
+
+		function getByClass(clsName, context, tag){
+			var result = [];
+			context = context || document;
+			tag = tag || '*';
+			var arr = context.getElementsByTagName(tag);
+			for(var i=0; i<arr.length; i++){
+				var re = new RegExp("\\b"+clsName+"\\b", 'g');
+				if(re.test(arr[i].className)){
+					result.push(arr[i]);
+				}
+			}
+			return result;
+		}
+
+		//var aP = tag('p');
+
+		function tag(tagName, context){
+			context = context || document;
+			return context.getElementsByTagName(tagName);
+		}
+
+
+
+
+
+
+
+
+
+
+
+
+	</script>
+</body>
+</html>

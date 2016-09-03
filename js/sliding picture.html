@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		img{
+			border: 0;
+		}
+		#container{
+			width: 520px;
+			height: 280px;
+			position: relative;
+			margin: 100px auto;
+			overflow: hidden;
+		}
+		#container img{
+			width: 520px;
+			height: 280px;
+			position: absolute;
+			left: 0;
+			top: 0;
+		}
+
+	</style>
+</head>
+<body>
+	<div id="container">
+		<img src="img/1.jpg" alt="" style="z-index:4">
+		<img src="img/2.jpg" alt="" style="z-index:3">
+		<img src="img/3.jpg" alt="" style="z-index:2">
+		<img src="img/4.jpg" alt="" style="z-index:1">
+	</div>
+
+	<script src='wichung-1.0.js'></script>
+	<script>
+		var oContainer = document.getElementById('container');
+		var aImg = oContainer.getElementsByTagName('img');
+		var arrImg = [];
+		var bStop = false;//表示是否停止，初始值表示不停止false
+		for(var i=0; i<aImg.length; i++){
+			arrImg.push(aImg[i]);
+			aImg[i].onclick = function(){
+				bStop = false;
+				changeImg(this);
+			};
+		}
+		function changeImg(obj){
+			var rand = parseInt(Math.random() * 100) % 4 + 1;
+			var attr = {opacity : 0};
+			switch(rand){
+				case 1:
+				 	attr.top = -aImg[0].offsetHeight;
+				 	break;
+				case 2:
+				 	attr.top = aImg[0].offsetHeight;
+				 	break;
+				case 3:
+				 	attr.left =  -aImg[0].offsetWidth;
+				 	break;
+				case 4:
+				  	attr.left = aImg[0].offsetWidth;
+				  	break;
+			}
+			!bStop && animate(obj, attr, function(){
+				obj.style.top = 0;
+				obj.style.left = 0;
+				var oFirstImg = arrImg.shift();
+				arrImg.push(oFirstImg);
+				for(var i=0; i<arrImg.length; i++){
+					arrImg[i].style.zIndex = arrImg.length - i;
+				}
+				obj.style.opacity = 1;
+				obj.style.filter = 'alpha(opacity=100)';
+				bStop = true;//表示已经停止true
+			});
+
+
+		}
+	</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
